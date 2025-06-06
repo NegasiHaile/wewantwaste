@@ -8,7 +8,7 @@ import skipImage10YD from "../assets/10-Yd-skip.png";
 import skipImage12YD from "../assets/12-Yd-skip.png";
 import skipImage14YD from "../assets/14-Yd-skip.png";
 import skipImage16YD from "../assets/16-Yd-skip.png";
-import skipImage20YD from "../assets/20-Yd-skip.png";
+import skipImage20YD from "../assets/20-Yd-skip.webp";
 
 const images = {
   1: skipImage8YD,
@@ -38,7 +38,7 @@ const SkipCard = ({
       className={clsx(
         "rounded-xl shadow-sm transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg border-[0.5px] dark:bg-gray-800/50",
         isSelected
-          ? "border-primary-400 bg-primary-50 dark:bg-yellow-600/30 dark:border-primary-400/20"
+          ? "border-primary-400 bg-primary-50 dark:bg-yellow-800/20 dark:border-yellow-800/20"
           : "border-gray-200 bg-white dark:border-gray-700 hover:border-primary-400",
         className
       )}
