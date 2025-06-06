@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import Button from "./Button";
 
+import { Timer } from "lucide-react";
+
 import skipImage4YD from "../assets/4-Yd-skip.png";
 import skipImage6YD from "../assets/6-Yd-skip.webp";
 import skipImage8YD from "../assets/8-Yd-skip.png";
@@ -44,7 +46,7 @@ const SkipCard = ({
       )}
     >
       {/* ---------- CARD CONTENT START ---------- */}
-      <div className="p-6 flex flex-row gap-6 items-start">
+      <div className="p-4 flex flex-row gap-6 items-start">
         {/* LEFT: IMAGE */}
         <img
           src={skip?.imageUrl || images[skip.size] || images[1]}
@@ -58,8 +60,9 @@ const SkipCard = ({
             <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
               {skip.size} Yard Skip
             </h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              {skip.hire_period_days}-day hire
+            <p className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+              <span className="text-lg">🕒</span> {skip.hire_period_days}-day
+              hire
             </p>
           </div>
 
@@ -70,12 +73,12 @@ const SkipCard = ({
               </p>
               {skip.allowed_on_road && (
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                  ✓ Can be placed on road
+                  <span className="text-xl">🚧</span> Can be placed on road
                 </p>
               )}
               {skip.allows_heavy_waste && (
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  🏋️‍♂️ Suitable for heavy waste
+                  <span className="text-xl">🏋️‍♂️</span> Suitable for heavy waste
                 </p>
               )}
               {skip.forbidden && (

@@ -3,10 +3,12 @@ import SkipCard from "../components/SkipCard";
 import Button from "../components/Button";
 import clsx from "clsx";
 import SkipCardSkeleton from "../components/skeletons/SkeletonCard";
+import FilterSkips from "../components/FilterSkips";
 
 export default function SelectSkip({ activeTab, handleTabData }) {
   const [selected, setSelected] = useState(activeTab?.data?.id ?? null);
   const [skips, setSkips] = useState([]);
+  const [filteredSkips, setFilteredSkips] = useState([]);
   const [isLoading, setIsloading] = useState(false);
 
   useEffect(() => {
@@ -29,6 +31,7 @@ export default function SelectSkip({ activeTab, handleTabData }) {
         }
 
         setSkips(data);
+        setFilteredSkips([...data]);
       } catch (error) {
         console.error("Error fetching skips by location:", error);
       } finally {
@@ -41,18 +44,18 @@ export default function SelectSkip({ activeTab, handleTabData }) {
 
   return (
     <>
-      <div className="w-full felx flex-col items-center mb-6">
-        <h1 className="text-3xl font-semibold text-center text-gray-900 dark:text-white mb-4">
+      <div className="w-full flex flex-col space-y-5 justify-between items-center mb-6 md:space-x-10">
+        <h1 className="text-2xl md:text-3xl font-semibold text-center text-gray-900 dark:text-white">
           Select the skip size that best suits your needs
         </h1>
 
-        <p className="text-center"></p>
+        <FilterSkips skips={skips} setFilteredSkips={setFilteredSkips} />
       </div>
 
       {/* ---------- SKIP CARDS START ---------- */}
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto">
         {!isLoading
-          ? skips?.map((skip, index) => (
+          ? filteredSkips?.map((skip, index) => (
               <SkipCard
                 key={index}
                 index={index}
