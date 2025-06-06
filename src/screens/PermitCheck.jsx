@@ -54,7 +54,7 @@ export default function PermitCheck({ activeTab, handleTabData }) {
                   "p-6 flex flex-col gap-4",
                   "hover:border-primary-400",
                   isSelected
-                    ? "border-primary-400 bg-primary-50 dark:bg-yellow-600/20 dark:border-primary-400/20"
+                    ? "border-primary-400 bg-primary-50 dark:bg-primary-600/20 dark:border-primary-400/20"
                     : "border-gray-200 bg-white dark:bg-gray-800/50 dark:border-gray-700"
                 )}
               >
