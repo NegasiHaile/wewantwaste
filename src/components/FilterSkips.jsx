@@ -149,7 +149,7 @@ export default function FilterSkips({
       {/* FILTER */}
       <div
         ref={dropdownRef}
-        className="relative inline-block w-full md:max-w-64 text-left"
+        className="relative inline-block w-full max-w-64 text-left"
       >
         <button
           onClick={() => setOpen(!open)}
