@@ -39,17 +39,17 @@ const SkipCard = ({
               £{skip.price_before_vat} + VAT ({skip.vat}%)
             </p>
             {skip.allowed_on_road && (
-              <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                 ✓ Can be placed on road
               </p>
             )}
             {skip.allows_heavy_waste && (
-              <p className="text-xs text-gray-600 dark:text-gray-400">
+              <p className="text-sm text-gray-600 dark:text-gray-400">
                 🏋️‍♂️ Suitable for heavy waste
               </p>
             )}
             {skip.forbidden && (
-              <p className="text-xs text-red-500 dark:text-red-400 font-medium">
+              <p className="text-sm text-red-500 dark:text-red-400 font-medium">
                 🚫 Cannot be used in this area
               </p>
             )}
@@ -60,7 +60,10 @@ const SkipCard = ({
             variant={isSelected ? "default" : "outline"}
             onClick={() => {
               onSelect(skip.id);
-              handleTabData(`${skip.size} Yard Skip`, skip);
+              handleTabData(
+                `${skip.size} Yard Skip, ${skip.hire_period_days}-day hire, £${skip.price_before_vat}`,
+                skip
+              );
             }}
             disabled={skip.forbidden}
           >

@@ -47,7 +47,7 @@ function App() {
     {
       step: 5,
       title: "Choose Date",
-      stepDescription: "",
+      stepDescription: "15-06-2025",
       screen: <ChooseDate />,
       data: null,
     },
@@ -121,7 +121,7 @@ function App() {
         {/* --------- STEPS BAR END -------- */}
 
         {/* --------- ACTIVE TAB SCREEN START -------- */}
-        <div className="w-full flex-grow px-6 pb-16">
+        <div className="w-full flex-grow px-6 pb-16 flex flex-col items-center">
           {React.cloneElement(activeTab.screen, { activeTab, handleTabData })}
         </div>
         {/* --------- ACTIVE TAB SCREEN END -------- */}
