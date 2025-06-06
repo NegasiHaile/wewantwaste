@@ -70,16 +70,6 @@ export default function SelectSkip({ activeTab, handleTabData }) {
             })}
       </div>
       {/* ---------- SKIP CARDS END ---------- */}
-
-      <div className="mt-10 flex justify-center items-center mx-auto mb-6">
-        <Button
-          className={clsx(
-            "rounded-full bg-primary-400 text-white hover:bg-primary-500"
-          )}
-        >
-          Load more
-        </Button>
-      </div>
     </>
   );
 }
