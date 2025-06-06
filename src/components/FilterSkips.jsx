@@ -134,12 +134,12 @@ export default function FilterSkips({
             {sortOrder === "asc" ? (
               <>
                 <ArrowUpAZ className="w-4 h-4" />
-                <span>Asc</span>
+                <span className="hidden sm:block">Asc</span>
               </>
             ) : (
               <>
                 <ArrowDownZA className="w-4 h-4" />
-                <span>Desc</span>
+                <span className="hidden sm:block">Desc</span>
               </>
             )}
           </button>
