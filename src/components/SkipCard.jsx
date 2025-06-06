@@ -49,7 +49,7 @@ const SkipCard = ({
         <img
           src={skip?.imageUrl || images[skip.size] || images[1]}
           alt={`${skip.size} Yard Skip`}
-          className="w-32 h-32 object-cover rounded-md border-0"
+          className="w-32 h-32 object-cover rounded-md border-0 hidden md:block"
         />
 
         {/* RIGHT: TEXT & BUTTON */}
