@@ -11,7 +11,7 @@ export default defineConfig({
       registerType: "autoUpdate",
       includeAssets: ["favicon.svg", "robots.txt", "apple-touch-icon.png"],
       manifest: {
-        name: "WeWantWaste",
+        name: "We Want Waste",
         short_name: "WasteApp",
         description: "Skip hire made simple. Book your skip in seconds.",
         start_url: "/",

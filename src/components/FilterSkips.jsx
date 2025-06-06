@@ -46,19 +46,6 @@ export default function FilterSkips({
     }));
   };
 
-  const getFilterSummary = () => {
-    const entries = Object.entries(filters).filter(
-      ([_, v]) => v !== "" && v !== null
-    );
-    if (entries.length === 0) return "";
-    return entries
-      .map(([key, value]) => {
-        if (typeof value === "boolean") return key;
-        return `${key}: ${value}`;
-      })
-      .join(", ");
-  };
-
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -96,7 +83,7 @@ export default function FilterSkips({
 
   return (
     <div className="w-full flex justify-between items-center gap-4">
-      {/* SORT */}
+      {/* ---------- SORT STARTS---------- */}
       <div className="flex items-center gap-3 bg-white dark:bg-gray-800 px-2 md:px-4 py-1.5 rounded-md border border-gray-300 dark:border-gray-700 shadow-sm">
         <label className="text-sm hidden md:block font-semibold text-gray-700 dark:text-gray-200 whitespace-nowrap">
           Sort by
@@ -145,8 +132,9 @@ export default function FilterSkips({
           </button>
         )}
       </div>
+      {/* ---------- SORT ENDS---------- */}
 
-      {/* FILTER */}
+      {/* ---------- FILTER STARTS ---------- */}
       <div
         ref={dropdownRef}
         className="relative inline-block w-full max-w-64 text-left"
@@ -207,6 +195,7 @@ export default function FilterSkips({
           </div>
         )}
       </div>
+      {/* ---------- FILTER ENDS ---------- */}
     </div>
   );
 }
