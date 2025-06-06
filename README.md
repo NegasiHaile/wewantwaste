@@ -2,7 +2,8 @@
 
 A minimalist React + Vite application built to demonstrate clean UI, modern tooling, and thoughtful architecture — designed with developer experience and scalability in mind.
 
-> **Live Demo:** [https://rem-waste-blond.vercel.app/](https://rem-waste-blond.vercel.app/)
+> **Vercel Live Demo:** [https://rem-waste-blond.vercel.app/](https://rem-waste-blond.vercel.app/)
+> **CodeSandbox:** [https://codesandbox.io/p/github/NegasiHaile/wewantwaste/master](https://codesandbox.io/p/github/NegasiHaile/wewantwaste/master)
 
 ![Desktop view](/public/desktop.png)
 
@@ -110,7 +111,7 @@ npm run lint
 
 - Clean, readable, and modular components
 
-- Consistent and idiomatic React patterns (including hooks)
+- Creating custom tailwindcss classnames `(Ex. bg-primary-500)` using the `@theme` configuration
 
 - Use of clsx for conditional styling
 
