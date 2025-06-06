@@ -14,51 +14,53 @@ import PermitCheck from "./screens/PermitCheck";
 import ChooseDate from "./screens/ChooseDate";
 import Payment from "./screens/Payment";
 
+const stepsInitial = [
+  {
+    step: 1,
+    title: "Postcode",
+    stepDescription: "NR32",
+    screen: <Postcode />,
+    data: null,
+  },
+  {
+    step: 2,
+    title: "Waste type",
+    stepDescription: "Garden Waste",
+    screen: <WasteType />,
+    data: null,
+  },
+  {
+    step: 3,
+    title: "Select Skip",
+    stepDescription: "",
+    screen: <SelectSkip />,
+    data: {},
+  },
+  {
+    step: 4,
+    title: "Permit Check",
+    stepDescription: "",
+    screen: <PermitCheck />,
+    data: null,
+  },
+  {
+    step: 5,
+    title: "Choose Date",
+    stepDescription: "15-06-2025",
+    screen: <ChooseDate />,
+    data: null,
+  },
+  {
+    step: 6,
+    title: "Payment",
+    stepDescription: "",
+    screen: <Payment />,
+    data: null,
+  },
+];
+
 function App() {
-  const [steps, setSteps] = useState([
-    {
-      step: 1,
-      title: "Postcode",
-      stepDescription: "NR32",
-      screen: <Postcode />,
-      data: null,
-    },
-    {
-      step: 2,
-      title: "Waste type",
-      stepDescription: "Garden Waste",
-      screen: <WasteType />,
-      data: null,
-    },
-    {
-      step: 3,
-      title: "Select Skip",
-      stepDescription: "",
-      screen: <SelectSkip />,
-      data: {},
-    },
-    {
-      step: 4,
-      title: "Permit Check",
-      stepDescription: "",
-      screen: <PermitCheck />,
-      data: null,
-    },
-    {
-      step: 5,
-      title: "Choose Date",
-      stepDescription: "15-06-2025",
-      screen: <ChooseDate />,
-      data: null,
-    },
-    {
-      step: 6,
-      title: "Payment",
-      stepDescription: "",
-      screen: <Payment />,
-      data: null,
-    },
-  ]);
+  const [steps, setSteps] = useState([...stepsInitial]);
 
   const [activeTab, setActiveTab] = useState(steps[2]);
   const tabRefs = useRef({});
