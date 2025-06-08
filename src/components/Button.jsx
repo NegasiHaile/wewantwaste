@@ -1,5 +1,6 @@
 const Button = ({ children, onClick, variant = "default", disabled }) => {
-  const base = "px-4 py-2 rounded font-medium transition-colors";
+  const base =
+    "px-2 py-1 md:px-4 md:py-2 rounded font-normal md:font-medium transition-colors";
   const variants = {
     default:
       "bg-primary-500 text-white hover:bg-primary-400 border-primary-500",

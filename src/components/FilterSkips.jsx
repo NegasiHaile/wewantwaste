@@ -84,7 +84,7 @@ export default function FilterSkips({
   return (
     <div className="w-full flex justify-between items-center gap-4">
       {/* ---------- SORT STARTS---------- */}
-      <div className="flex items-center gap-3 bg-white dark:bg-gray-800 px-2 md:px-4 py-1.5 rounded-md border border-gray-300 dark:border-gray-700 shadow-sm">
+      <div className="flex items-center gap-1 md:gap-3 bg-white dark:bg-gray-800 px-2 md:px-4 py-1.5 rounded-md border border-gray-300 dark:border-gray-700 shadow-sm">
         <label className="text-sm hidden md:block font-semibold text-gray-700 dark:text-gray-200 whitespace-nowrap">
           Sort by
         </label>
@@ -115,7 +115,7 @@ export default function FilterSkips({
             onClick={() =>
               setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"))
             }
-            className="flex items-center gap-1 px-2 py-1 text-sm border cursor-pointer border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition"
+            className="flex items-center gap-1 px-2 py-1.5 text-sm border cursor-pointer border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition"
             title={`Sort ${sortOrder === "asc" ? "Descending" : "Ascending"}`}
           >
             {sortOrder === "asc" ? (
@@ -137,7 +137,7 @@ export default function FilterSkips({
       {/* ---------- FILTER STARTS ---------- */}
       <div
         ref={dropdownRef}
-        className="relative inline-block w-full max-w-64 text-left"
+        className="relative inline-block w-fit md:w-full max-w-64 text-left"
       >
         <button
           onClick={() => setOpen(!open)}

@@ -44,16 +44,27 @@ export default function SelectSkip({ activeTab, handleTabData }) {
 
   return (
     <>
-      <div className="w-full flex flex-col space-y-5 justify-between items-center mb-6 md:space-x-10">
-        <h1 className="text-2xl md:text-3xl font-semibold text-center text-gray-900 dark:text-white">
+      {/* --------- SKIP SELECTION HEADER --------- */}
+      <header className="w-full flex flex-col space-y-3 items-center text-center mb-3">
+        <h1 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white">
           Select the skip size that best suits your needs
         </h1>
 
-        <FilterSkips skips={skips} setFilteredSkips={setFilteredSkips} />
-      </div>
+        {/* Filter component for narrowing skip options */}
+        <section aria-label="filter skip sizes" className="w-full">
+          <FilterSkips skips={skips} setFilteredSkips={setFilteredSkips} />
+        </section>
+      </header>
 
-      {/* ---------- SKIP CARDS START ---------- */}
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto">
+      {/* --------- SKIP OPTIONS GRID --------- */}
+      <section
+        aria-labelledby="skip-options-heading"
+        className="w-full grid grid-cols-1 md:grid-cols-2 gap-3 mx-auto pb-5"
+      >
+        <h2 id="skip-options-heading" className="sr-only">
+          Available skip sizes
+        </h2>
+
         {!isLoading
           ? filteredSkips?.map((skip, index) => (
               <SkipCard
@@ -65,11 +76,10 @@ export default function SelectSkip({ activeTab, handleTabData }) {
                 handleTabData={handleTabData}
               />
             ))
-          : [0, 1, 2, 3, 4].map((item) => {
-              return <SkipCardSkeleton key={item} index={item} />;
-            })}
-      </div>
-      {/* ---------- SKIP CARDS END ---------- */}
+          : Array.from({ length: 6 }).map((_, item) => (
+              <SkipCardSkeleton key={item} index={item} />
+            ))}
+      </section>
     </>
   );
 }

@@ -1,8 +1,6 @@
 import clsx from "clsx";
 import Button from "./Button";
 
-import { Timer } from "lucide-react";
-
 import skipImage4YD from "../assets/4-Yd-skip.png";
 import skipImage6YD from "../assets/6-Yd-skip.webp";
 import skipImage8YD from "../assets/8-Yd-skip.png";
@@ -35,8 +33,11 @@ const SkipCard = ({
   const isSelected = selected === skip.id;
 
   return (
-    <div
+    <article
       key={index}
+      role="group"
+      aria-labelledby={`skip-heading-${skip.id}`}
+      aria-describedby={`skip-description-${skip.id}`}
       className={clsx(
         "rounded-xl shadow-sm transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg border-[0.5px] dark:bg-gray-800/50",
         isSelected
@@ -56,33 +57,50 @@ const SkipCard = ({
 
         {/* RIGHT: TEXT & BUTTON */}
         <div className="flex flex-col justify-between gap-4 flex-1">
-          <div>
-            <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
+          <header>
+            <h2
+              id={`skip-heading-${skip.id}`}
+              className="text-xl font-semibold text-gray-800 dark:text-gray-100"
+            >
               {skip.size} Yard Skip
             </h2>
-            <p className="flex items-center text-sm text-gray-500 dark:text-gray-400">
-              <span className="text-lg">🕒</span> {skip.hire_period_days}-day
-              hire
+            <p
+              id={`skip-description-${skip.id}`}
+              className="flex items-center text-sm text-gray-500 dark:text-gray-400"
+            >
+              <span className="text-lg" aria-hidden="true">
+                🕒
+              </span>{" "}
+              {skip.hire_period_days}-day hire
             </p>
-          </div>
+          </header>
 
           <div className="flex justify-between items-end flex-wrap gap-4">
-            <div>
+            <div className="space-y-1">
               <p className="text-lg font-semibold text-primary-400 dark:text-primary-400">
                 £{skip.price_before_vat} + VAT ({skip.vat}%)
               </p>
+
               {skip.allowed_on_road && (
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                  <span className="text-xl">🚧</span> Can be placed on road
+                <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                  <span className="text-sm md:text-xl" aria-hidden="true">
+                    🚧
+                  </span>{" "}
+                  Can be placed on road
                 </p>
               )}
+
               {skip.allows_heavy_waste && (
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  <span className="text-xl">🏋️‍♂️</span> Suitable for heavy waste
+                <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400">
+                  <span className="text-sm md:text-xl" aria-hidden="true">
+                    🏋️‍♂️
+                  </span>{" "}
+                  Suitable for heavy waste
                 </p>
               )}
+
               {skip.forbidden && (
-                <p className="text-sm text-red-500 dark:text-red-400 font-medium">
+                <p className="text-xs md:text-sm text-red-500 dark:text-red-400 font-medium">
                   🚫 Cannot be used in this area
                 </p>
               )}
@@ -98,7 +116,12 @@ const SkipCard = ({
                   skip
                 );
               }}
+              aria-pressed={isSelected}
+              aria-disabled={skip.forbidden}
               disabled={skip.forbidden}
+              aria-label={`${isSelected ? "Selected" : "Select"} ${
+                skip.size
+              } Yard Skip`}
             >
               {isSelected ? "✓ Selected" : "Select"}
             </Button>
@@ -106,7 +129,7 @@ const SkipCard = ({
         </div>
       </div>
       {/* ---------- CARD CONTENT END ---------- */}
-    </div>
+    </article>
   );
 };
 

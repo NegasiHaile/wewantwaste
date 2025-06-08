@@ -99,12 +99,14 @@ function App() {
     );
     setActiveTab((prev) => ({ ...prev, stepDescription: value }));
   };
-
   return (
     <div className="w-full flex flex-col items-center min-h-screen bg-gray-50 dark:bg-gray-900">
-      <div className="relative w-full max-w-6xl flex flex-col flex-grow space-y-6">
+      <main className="relative w-full max-w-6xl flex flex-col flex-grow space-y-5">
         {/* --------- STEPS BAR START -------- */}
-        <div className="w-full overflow-x-auto scrollbar_hide rounded-lg flex justify-between items-start gap-4 p-6 scroll-smooth">
+        <section
+          aria-label="Progress navigation"
+          className="w-full overflow-x-auto scrollbar_hide rounded-lg flex justify-between items-start gap-4 p-6 scroll-smooth"
+        >
           {steps.map((step, idx) => (
             <div
               key={step.step}
@@ -119,18 +121,21 @@ function App() {
               />
             </div>
           ))}
-        </div>
+        </section>
         {/* --------- STEPS BAR END -------- */}
 
         {/* --------- ACTIVE TAB SCREEN START -------- */}
-        <div className="w-full flex-grow px-6 pb-16 flex flex-col items-center">
+        <section
+          aria-label="Skip hiring screens"
+          className="w-full flex-grow px-6 pb-16 flex flex-col items-center"
+        >
           {React.cloneElement(activeTab.screen, { activeTab, handleTabData })}
-        </div>
+        </section>
         {/* --------- ACTIVE TAB SCREEN END -------- */}
 
         {/* --------- BACK/NEXT BUTTONS -------- */}
         {activeTab.stepDescription && (
-          <div className="fixed bottom-0 left-0 flex flex-col items-center w-full bg-gray-100 dark:bg-gray-800 p-3 md:p-6">
+          <section className="fixed bottom-0 left-0 flex flex-col items-center w-full bg-gray-100 dark:bg-gray-800 p-3 md:p-6">
             <div className="flex w-full max-w-6xl justify-between items-center">
               <Button onClick={handleBack} variant="ghost">
                 Back
@@ -139,9 +144,9 @@ function App() {
                 Continue
               </Button>
             </div>
-          </div>
+          </section>
         )}
-      </div>
+      </main>
     </div>
   );
 }
